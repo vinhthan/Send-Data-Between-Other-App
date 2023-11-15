@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="com.example.SEND_BROADCAST_PERMISSION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SendDataBetweenOtherApp">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <receiver android:name=".MyBroadcast"
+            android:exported="true"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="ACTION_SEND_DATA"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.example.SEND_DATA" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.sampleapp.receiver.severity" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="com.example.senddatabetweenotherapp_SEND"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.vinhtm1"/>
+            </intent-filter>
+
+
+        </receiver>
+    </application>
+
+</manifest>
